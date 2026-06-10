@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { SiteHeader } from "@/components/site-header"
 import { Ticket } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -9,22 +10,7 @@ import Link from "next/link"
 export function OmnibandLanding() {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      <header className="container mx-auto py-6 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6dd4352bc6f4094e483445dbf2ded9ac-seffbdxme7av13NHYlAHVMyC9y9DQz.png"
-            alt="OmniBand Logo"
-            width={100}
-            height={100}
-            className="w-16 h-16"
-          />
-          <span className="text-2xl font-bold">OmniBand | 牛津热音社</span>
-        </div>
-        <nav className="space-x-4">
-          <a href="#about" className="hover:underline">About Us | 关于我们</a>
-          <a href="#tickets" className="hover:underline">Tickets | 购票</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="py-20 text-center bg-gradient-to-b from-gray-900 to-black">
