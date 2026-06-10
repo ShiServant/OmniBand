@@ -63,8 +63,8 @@ export default function BandPage({ params }: BandPageProps) {
         <section className="container mx-auto px-4 py-16 max-w-3xl space-y-12">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">About | 乐队简介</h2>
-            <p className="text-gray-300">{band.description}</p>
-            <p className="text-gray-300">{band.descriptionZh}</p>
+            <p className="text-gray-300 whitespace-pre-line">{band.descriptionZh}</p>
+            <p className="text-gray-300 whitespace-pre-line italic">{band.description}</p>
           </div>
 
           <div className="space-y-4">
@@ -72,13 +72,11 @@ export default function BandPage({ params }: BandPageProps) {
             <ul className="divide-y divide-zinc-800">
               {band.members.map((member) => (
                 <li
-                  key={`${member.role}-${member.name}`}
-                  className="flex justify-between items-center py-3 text-gray-300"
+                  key={member.name}
+                  className="flex justify-between items-center py-3"
                 >
-                  <span>
-                    {member.role} | {member.roleZh}
-                  </span>
                   <span className="font-medium text-white">{member.name}</span>
+                  <span className="text-gray-400">{member.role}</span>
                 </li>
               ))}
             </ul>

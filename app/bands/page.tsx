@@ -27,7 +27,7 @@ export default function BandsPage() {
                 alt={`${band.name} | ${band.chineseName}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
+                className="object-contain transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
               />
               <div className="absolute inset-0 bg-black/50" />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
