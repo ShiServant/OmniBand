@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
-import { Card } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
-import { bands } from "@/lib/bands"
-import { ArrowRight, Music } from "lucide-react"
+import { bands } from "@/lib/data/bands"
 
 export const metadata: Metadata = {
   title: "Bands | 乐队们 - OmniBand | 牛津热音社",
@@ -15,41 +14,39 @@ export default function BandsPage() {
     <div className="min-h-screen bg-black text-white font-sans">
       <SiteHeader />
 
-      <main>
-        <section className="py-16 text-center bg-gradient-to-b from-gray-900 to-black">
-          <h1 className="text-4xl font-bold mb-4">Bands | 乐队们</h1>
-          <p className="text-xl text-gray-300">
-            Meet the bands of OmniBand | 认识热音社的乐队们
-          </p>
-        </section>
+      <main className="container mx-auto px-4 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {bands.map((band) => (
+            <Link
+              key={band.slug}
+              href={`/bands/${band.slug}`}
+              className="group relative block aspect-[4/3] overflow-hidden"
+            >
+              <Image
+                src={band.coverImage}
+                alt={`${band.name} | ${band.chineseName}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
+              />
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                <h2 className="font-serif text-3xl sm:text-4xl font-semibold tracking-wide text-white">
+                  {band.name}
+                </h2>
+                <p className="mt-3 text-lg text-white/90 tracking-[0.2em]">
+                  {band.chineseName}
+                </p>
+              </div>
+            </Link>
+          ))}
 
-        <section className="py-16 bg-black">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {bands.map((band) => (
-                <Link key={band.slug} href={`/bands/${band.slug}`} className="group">
-                  <Card className="h-full p-8 bg-primary/10 border border-gray-700 text-left transition-colors group-hover:border-gray-300">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Music className="w-6 h-6 text-gray-300" />
-                      <span className="text-sm text-gray-400">
-                        {band.genre} | {band.genreZh}
-                      </span>
-                    </div>
-                    <h2 className="text-2xl font-bold text-white mb-2">
-                      {band.name} | {band.nameZh}
-                    </h2>
-                    <p className="text-gray-300 mb-2">{band.tagline}</p>
-                    <p className="text-gray-300 mb-6">{band.taglineZh}</p>
-                    <span className="inline-flex items-center gap-2 text-white font-medium group-hover:underline">
-                      Learn More | 了解更多
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </Card>
-                </Link>
-              ))}
-            </div>
+          <div className="relative flex aspect-[4/3] items-center justify-center bg-zinc-800">
+            <p className="font-serif text-2xl sm:text-3xl tracking-wide text-white/60">
+              Waiting for you
+            </p>
           </div>
-        </section>
+        </div>
       </main>
 
       <footer className="bg-black py-6 text-center text-gray-400">
