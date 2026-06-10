@@ -28,7 +28,7 @@ export function OmnibandLanding() {
 
       <main>
         <section className="py-20 text-center bg-gradient-to-b from-gray-900 to-black">
-          <h1 className="text-5xl font-bold mb-6">OmniBand | 牛津热音社</h1>
+          <h1 className="text-5xl font-bold mb-6">OmniBand 2026 | 牛津热音社</h1>
           <p className="text-xl mb-8">Where Passion Meets Music | 激情与音乐的交汇</p>
           <Link href="https://wj.qq.com/r/login.html?s_url=https%3A%2F%2Fwj.qq.com%2Fs2%2F15004374%2F09e4%2F&sid=15004374&hash=09e4&login_type=unite&scene_type=respondent" passHref>
             <Button className="bg-white text-black hover:bg-gray-200">Join Us | 加入我们</Button>
