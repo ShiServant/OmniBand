@@ -38,7 +38,7 @@ export default function BandPage({ params }: BandPageProps) {
       <main>
         <section className="relative h-[50vh] min-h-[320px]">
           <Image
-            src={band.coverImage}
+            src={band.heroImage ?? band.coverImage}
             alt={`${band.name} | ${band.chineseName}`}
             fill
             priority

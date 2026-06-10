@@ -3,8 +3,10 @@ export interface Band {
   slug: string
   name: string
   chineseName: string
-  /** Path under /public, used as card background and detail hero */
+  /** Path under /public, used as the card background on the list page */
   coverImage: string
+  /** Optional hero image for the detail page; falls back to coverImage */
+  heroImage?: string
   genres: string[]
   /** Use \n for line breaks and blank lines for paragraphs */
   description: string
@@ -19,6 +21,7 @@ export const bands: Band[] = [
     name: "Midnight Oddities",
     chineseName: "午夜杂货铺",
     coverImage: "/images/bands/midnight-oddities/cover.jpg",
+    heroImage: "/images/bands/midnight-oddities/inner-cover.png",
     genres: ["Indie Rock", "Alternative"],
     description: `There's a corner shop beneath the streetlight
 stocked with vinyl, fresh beer, and burning heart,
